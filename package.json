@@ -4,10 +4,13 @@
     "@emotion/styled": "latest",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
+    "@mui/styles": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-router-dom": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-router-dom": "latest",
     "typescript": "latest"
   },
   "description": "https://github.com/mui/material-ui/blob/v5.6.1/docs/data/material/components/drawers/ResponsiveDrawer.tsx",
