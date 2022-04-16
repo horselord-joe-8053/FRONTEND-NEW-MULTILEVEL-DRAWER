@@ -74,7 +74,7 @@ const DrawerMenuItem: React.FC<AppMenuItemProps> = (props) => {
             TODO: put this into centralized class/style file????*/}
       <List component="div" style={{ paddingLeft: '25px' }}>
         {items.map((item, index) => (
-          // recursive
+          // jjw: recursive
           <DrawerMenuItem {...item} key={index} />
         ))}
       </List>

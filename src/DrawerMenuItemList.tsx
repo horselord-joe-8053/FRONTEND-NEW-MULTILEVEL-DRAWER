@@ -13,6 +13,8 @@ import List from '@mui/material/List';
 
 import DrawerMenuItem from './DrawerMenuItem';
 
+import { Role, getLayoutByRole } from './drawer-menu/RoleToLayoutMap';
+
 const appMenuItems = [
   {
     name: 'Dashboard',
@@ -67,16 +69,20 @@ const appMenuItems = [
 const DrawerMenuItemList: React.FC = () => {
   const classes = useStyles();
 
+  var filledConfigs = getLayoutByRole(Role.Admin);
+  // jjw: TODO:
+  // jjw: Role roleFromUI = roleStringFromUI.toUpperCase() as Role;
+
   return (
     // jjw: NOTE:
     // jjw: Puzzling ERROR: "... refers to a value, but is being used as a type here"
     // jjw: => https://stackoverflow.com/a/64304122
     // jjw: make sure filename is with .tsx extension
     <List component="nav" className={classes.appMenu} disablePadding>
-      {/* <AppMenuItem {...appMenuItems[0]} /> */}
-      {appMenuItems.map((item, index) => (
+      {/* jjw: TODO: remove comment */}
+      {/* {appMenuItems.map((item, index) => (
         <DrawerMenuItem {...item} key={index} />
-      ))}
+      ))} */}
     </List>
   );
 };
