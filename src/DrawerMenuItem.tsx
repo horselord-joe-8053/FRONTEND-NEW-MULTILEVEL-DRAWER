@@ -42,7 +42,9 @@ const DrawerMenuItem: React.FC<AppMenuItemProps> = (props) => {
   const classes = useStyles();
   const isExpandable = items && items.length > 0;
   const [open, setOpen] = React.useState(false);
+
   console.log('name:' + name + ', isExpandable:' + isExpandable + ', open:' + open);
+
   function handleClick() {
     console.log('handleClick start, name:' + name + ', open:' + open);
     setOpen(!open);
@@ -67,7 +69,10 @@ const DrawerMenuItem: React.FC<AppMenuItemProps> = (props) => {
   const MenuItemChildren = isExpandable ? (
     <Collapse in={open} timeout="auto" unmountOnExit>
       <Divider />
-      <List component="div" disablePadding>
+      {/* <List component="div" disablePadding> */}
+      {/* jjw: cascade the left padding for children components 
+            TODO: put this into centralized class/style file????*/}
+      <List component="div" style={{ paddingLeft: '25px' }}>
         {items.map((item, index) => (
           // recursive
           <DrawerMenuItem {...item} key={index} />
