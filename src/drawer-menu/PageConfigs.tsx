@@ -28,8 +28,7 @@ export const pageConfigs = {
   home: {
     name: 'Home',
     link: '/',
-    routeTo: 'Home',
-    // jjw: TODO: HERE!! remove class just use string, later we just need to generate using the name anyway
+    RouteTo: Home, // jjw: TODO: HERE!! remove
     Icon: IconDashboard,
   },
   resident: {
@@ -40,13 +39,13 @@ export const pageConfigs = {
   residentInfo: {
     name: 'Resident Info',
     link: '/resident-info',
-    routeTo: 'ResidentInfo',
+    RouteTo: ResidentInfo,
     Icon: IconShoppingCart,
   },
   residentPayment: {
     name: 'Resident Payment',
     link: '/resident-payment',
-    routeTo: 'ResidentPayment',
+    RouteTo: ResidentPayment,
     Icon: IconShoppingCart,
   },
   staff: {
@@ -57,43 +56,43 @@ export const pageConfigs = {
   staffInfo: {
     name: 'Staff Info',
     link: '/staff-info',
-    routeTo: 'StaffInfo',
+    RouteTo: StaffInfo,
     Icon: IconShoppingCart,
   },
   staffCompensation: {
     name: 'Staff Compensation',
     link: '/staff-compensation',
-    routeTo: 'StaffCompensation',
+    RouteTo: StaffCompensation,
     Icon: IconShoppingCart,
   },
   staffTraining: {
     name: 'Staff Training',
     link: '/staff-training',
-    routeTo: 'StaffTraining',
+    RouteTo: StaffTraining,
     Icon: IconShoppingCart,
   },
   importantContacts: {
     name: 'Important Contacts',
     link: '/important-contacts',
-    routeTo: 'ImportantContacts',
+    RouteTo: ImportantContacts,
     Icon: IconShoppingCart,
   },
   serviceContacts: {
     name: 'Service Contacts',
     link: '/service-contacts',
-    routeTo: 'ServiceContacts',
+    RouteTo: ServiceContacts,
     Icon: IconShoppingCart,
   },
   contactUs: {
     name: 'Contact Us',
     link: '/contact-us',
-    routeTo: 'ContactUs',
+    RouteTo: ContactUs,
     Icon: IconShoppingCart,
   },
   users: {
-    name: 'Users',
-    link: '/users',
-    routeTo: 'Users',
+    name: 'Contact Us',
+    link: '/contact-us',
+    RouteTo: ContactUs,
     Icon: IconShoppingCart,
   },
 };

@@ -67,6 +67,8 @@ const filledConfig = getFilledConfigByRole(Role.Admin);
 const upperNavMenuItems: any[] = filledConfig.upper;
 const lowerNavMenuItems: any[] = filledConfig.lower;
 const routes: any[] = filledConfig.routes;
+// jjw: need to kinda force casting like this before putting in the middle of JSX components
+// jjw: TODO: why???
 
 // interface Props {
 //   /**
@@ -90,9 +92,9 @@ export default function ResponsiveDrawer() {
     <div>
       <Toolbar />
       <Divider />
-      <DrawerMenuItemList config={upperNavMenuItems} />
+      <DrawerMenuItemList menuItemsConfig={upperNavMenuItems} />
       <Divider />
-      <DrawerMenuItemList config={lowerNavMenuItems} />
+      <DrawerMenuItemList menuItemsConfig={lowerNavMenuItems} />
       {/* <List>
         {['All mail', 'Trash', 'Spam'].map((text, index) => (
           <ListItem button key={text}>
@@ -202,7 +204,7 @@ export default function ResponsiveDrawer() {
               <Route path="/reports" element={<PageReports />} />
               <Route path="/sublevelpage" element={<SubLevelPage />} />
               <Route path="/sub2levelpage" element={<Sub2LevelPage />} /> */}
-              {filledConfig.routes}
+              {routes}
             </Routes>
           </Container>
         </Box>

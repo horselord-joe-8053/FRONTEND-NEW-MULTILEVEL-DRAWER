@@ -58,7 +58,9 @@ export const adminDrawerMenuLayout = {
 };
   */
 
+  // arr for fill in the routes we got from each page's config
   var routesFilledConfig: any[] = [];
+
   // fill all item configs for upper level navigator menu
   var upperMenuLayoutKeys: any[] = layout.upper;
   Logger.logAsJsonStr(
@@ -132,7 +134,7 @@ function filledForKey(item: any, routes: any[]): any {
   */
 
   // for efficiency, we are also processing and populating the routes here
-  var FilledRouteTo: () => JSX.Element = filledParentConfig['routeTo'];
+  var FilledRouteTo = filledParentConfig.RouteTo;
   Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'FilledRouteTo', FilledRouteTo);
 
   if (FilledRouteTo) {

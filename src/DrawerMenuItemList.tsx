@@ -13,58 +13,7 @@ import List from '@mui/material/List';
 
 import DrawerMenuItem from './DrawerMenuItem';
 
-const appMenuItems = [
-  {
-    name: 'Dashboard',
-    link: '/',
-    Icon: IconDashboard,
-  },
-  {
-    name: 'Orders',
-    link: '/orders',
-    Icon: IconShoppingCart,
-  },
-  {
-    name: 'Customers',
-    link: '/customers',
-    Icon: IconPeople,
-  },
-  {
-    name: 'Reports',
-    link: '/reports',
-    Icon: IconBarChart,
-  },
-  {
-    name: 'Nested Pages',
-    Icon: IconLibraryBooks,
-    items: [
-      {
-        name: 'Level 2.1',
-        link: '/sublevelpage',
-        Icon: IconShoppingCart,
-      },
-      {
-        name: 'Level 2.2',
-        // link: "/sublevelpage",
-        // Icon: IconBarChart,
-        items: [
-          {
-            name: 'Level 2.2.1',
-            link: '/sub2levelpage',
-            Icon: IconPeople,
-          },
-          {
-            name: 'Level 2.2.2',
-            // link: "/",
-            // Icon: IconDashboard
-          },
-        ],
-      },
-    ],
-  },
-];
-
-const DrawerMenuItemList: React.FC<{ config: any[] }> = ({ config }) => {
+const DrawerMenuItemList: React.FC<{ menuItemsConfig: any[] }> = ({ menuItemsConfig }) => {
   const classes = useStyles();
 
   // jjw: TODO:
@@ -76,7 +25,7 @@ const DrawerMenuItemList: React.FC<{ config: any[] }> = ({ config }) => {
     // jjw: => https://stackoverflow.com/a/64304122
     // jjw: make sure filename is with .tsx extension
     <List component="nav" className={classes.appMenu} disablePadding>
-      {config.map((item, index) => (
+      {menuItemsConfig.map((item, index) => (
         <DrawerMenuItem {...item} key={index} />
       ))}
     </List>
