@@ -6,14 +6,15 @@ import * as Logger from '../utils/logger';
 
 import {
   adminDrawerMenuLayout,
-  // ownerDrawerMenuLayout,
-  // staffDrawerMenuLayout,
-  // privateUserDrawerMenuLayout,
-  // publicUserDrawerMenuLayout,
+  ownerDrawerMenuLayout,
+  staffDrawerMenuLayout,
+  privateUserDrawerMenuLayout,
+  publicUserDrawerMenuLayout,
 } from './Layouts';
 
 import { pageConfigs } from './PageConfigs';
 
+// jjw: TODO: the following may deserve a separate file
 export enum Role {
   Admin = 'ADMIN',
   Owner = 'OWNER',
@@ -21,13 +22,12 @@ export enum Role {
   PrivateUser = 'PRIVATEUSER',
   PublicUser = 'PUBLICUSER',
 }
-
 const rolesToLayouts = {
   [Role.Admin]: adminDrawerMenuLayout,
-  // [Role.Owner]: ownerDrawerMenuLayout,
-  // [Role.Staff]: staffDrawerMenuLayout,
-  // [Role.PrivateUser]: privateUserDrawerMenuLayout,
-  // [Role.PublicUser]: publicUserDrawerMenuLayout,
+  [Role.Owner]: ownerDrawerMenuLayout,
+  [Role.Staff]: staffDrawerMenuLayout,
+  [Role.PrivateUser]: privateUserDrawerMenuLayout,
+  [Role.PublicUser]: publicUserDrawerMenuLayout,
 };
 
 export function getFilledConfigByRole(role: Role): any {
@@ -116,10 +116,10 @@ function filledForKey(item: any, routes: any[]): any {
     },
   */
 
-  var itemKey: string = item.key;
-  Logger.logAsStr('RoleToLayoutMap.filledForKey', 'itemKey', itemKey);
+  var itemPage: string = item.page;
+  Logger.logAsStr('RoleToLayoutMap.filledForKey', 'itemKey', itemPage);
 
-  var filledParentConfig: any = pageConfigs[itemKey as keyof typeof pageConfigs];
+  var filledParentConfig: any = pageConfigs[itemPage as keyof typeof pageConfigs];
   Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'filledParentConfig', filledParentConfig);
 
   /*
@@ -173,7 +173,7 @@ function filledForKey(item: any, routes: any[]): any {
 
   var children: any[] = item.items;
 
-  Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'item.key', item.key);
+  Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'item.page', item.page);
   Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'item.items', item.items);
 
   Logger.logAsStr('RoleToLayoutMap.filledForKey', '', 'here 1');

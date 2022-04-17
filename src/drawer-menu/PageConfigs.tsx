@@ -28,7 +28,7 @@ export const pageConfigs = {
   home: {
     name: 'Home',
     link: '/',
-    RouteTo: Home, // jjw: TODO: HERE!! remove
+    RouteTo: Home, // jjw: note 'RouteTo' and 'Icon' start with capital letter because they may directly used in JSX </> in the code
     Icon: IconDashboard,
   },
   resident: {
@@ -89,10 +89,27 @@ export const pageConfigs = {
     RouteTo: ContactUs,
     Icon: IconShoppingCart,
   },
+
+  /* 
+jjw: got the following Warning:
+"
+react-jsx-dev-runtime.development.js:87 Warning: Each child in a list should have a unique "key" prop.
+Check the render method of `ResponsiveDrawer`
+"
+jjw: TODO: 
+https://stackoverflow.com/questions/34576332/warning-each-child-in-an-array-or-iterator-should-have-a-unique-key-prop-che
+
+*/
+  // users: {
+  //   name: 'Contact Us',
+  //   link: '/contact-us',
+  //   RouteTo: ContactUs,
+  //   Icon: IconBarChart,
+  // },
   users: {
-    name: 'Contact Us',
-    link: '/contact-us',
-    RouteTo: ContactUs,
+    name: 'Users',
+    link: '/users',
+    RouteTo: Users,
     Icon: IconShoppingCart,
   },
 };

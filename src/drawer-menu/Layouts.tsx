@@ -2,79 +2,85 @@ import React from 'react';
 
 export const adminDrawerMenuLayout = {
   upper: [
-    { key: 'home' },
+    { page: 'home' },
     {
-      key: 'resident',
-      items: [{ key: 'residentInfo' }, { key: 'residentPayment' }],
+      page: 'resident',
+      items: [
+        {
+          page: 'residentInfo',
+          items: [{ page: 'staffInfo' }, { page: 'staffCompensation' }],
+        },
+        { page: 'residentPayment' },
+      ],
     },
-    //   {
-    //     key: 'staff',
-    //     items: [{ key: 'staffInfo' }, { key: 'staffCompensation' }, { key: 'staffTraining' }],
-    //   },
-    //   { key: 'importantContacts' },
-    //   { key: 'serviceContacts' },
-    //   { key: 'users' },
+    {
+      page: 'staff',
+      items: [{ page: 'staffInfo' }, { page: 'staffCompensation' }, { page: 'staffTraining' }],
+    },
+    { page: 'importantContacts' },
+    { page: 'serviceContacts' },
+    { page: 'users' },
   ],
 
-  lower: [{ key: 'contactUs' }],
+  lower: [{ page: 'contactUs' }],
 };
 
-// export const ownerDrawerMenuLayout = {
-//   upper: [
-//     { key: 'home' },
-//     {
-//       key: 'resident',
-//       items: [{ key: 'residentInfo' }, { key: 'residentPayment' }],
-//     },
-//     {
-//       key: 'staff',
-//       items: [{ key: 'staffInfo' }, { key: 'staffCompensation' }, { key: 'staffTraining' }],
-//     },
-//     { key: 'importantContacts' },
-//     { key: 'serviceContacts' },
-//   ],
+export const ownerDrawerMenuLayout = {
+  upper: [
+    { page: 'home' },
+    {
+      page: 'resident',
+      items: [{ page: 'residentInfo' }, { page: 'residentPayment' }],
+    },
+    {
+      page: 'staff',
+      items: [{ page: 'staffInfo' }, { page: 'staffCompensation' }, { page: 'staffTraining' }],
+    },
+    { page: 'importantContacts' },
+    { page: 'serviceContacts' },
+  ],
 
-//   lower: [{ key: 'contactUs' }],
-// };
+  lower: [{ page: 'contactUs' }],
+};
 
-// export const staffDrawerMenuLayout = {
-//   upper: [
-//     { key: 'home' },
-//     {
-//       key: 'resident',
-//       items: [{ key: 'residentInfo' }],
-//     },
-//     {
-//       key: 'staff',
-//       items: [{ key: 'staffInfo' }, { key: 'staffTraining' }],
-//     },
-//     { key: 'importantContacts' },
-//     { key: 'serviceContacts' },
-//   ],
+export const staffDrawerMenuLayout = {
+  upper: [
+    { page: 'home' },
+    {
+      page: 'resident',
+      items: [{ page: 'residentInfo' }],
+    },
+    {
+      page: 'staff',
+      items: [{ page: 'staffInfo' }, { page: 'staffTraining' }],
+    },
+    { page: 'importantContacts' },
+    { page: 'serviceContacts' },
+  ],
 
-//   lower: [{ key: 'contactUs' }],
-// };
+  lower: [{ page: 'contactUs' }],
+};
 
-// export const privateUserDrawerMenuLayout = {
-//   upper: [
-//     { key: 'home' },
-//     {
-//       key: 'staff',
-//       items: [{ key: 'staffInfo' }],
-//     },
-//   ],
+export const privateUserDrawerMenuLayout = {
+  upper: [
+    { page: 'home' },
+    {
+      page: 'staff',
+      items: [{ page: 'staffInfo' }],
+    },
+  ],
 
-//   lower: [{ key: 'contactUs' }],
-// };
+  lower: [{ page: 'contactUs' }],
+};
 
-// export const publicUserDrawerMenuLayout = {
-//   upper: [
-//     { key: 'home' },
-//     {
-//       key: 'staff',
-//       items: [{ key: 'staffInfo' }],
-//     },
-//   ],
+export const publicUserDrawerMenuLayout = {
+  upper: [
+    { page: 'home' },
+    {
+      page: 'staff',
+      items: [{ page: 'staffInfo' }],
+    },
+  ],
 
-//   lower: [{ key: 'contactUs' }],
-// };
+  lower: [{ page: 'contactUs' }],
+};
