@@ -13,8 +13,6 @@ import List from '@mui/material/List';
 
 import DrawerMenuItem from './DrawerMenuItem';
 
-import { Role, getLayoutByRole } from './drawer-menu/RoleToLayoutMap';
-
 const appMenuItems = [
   {
     name: 'Dashboard',
@@ -66,10 +64,9 @@ const appMenuItems = [
   },
 ];
 
-const DrawerMenuItemList: React.FC = () => {
+const DrawerMenuItemList: React.FC<{ config: any[] }> = ({ config }) => {
   const classes = useStyles();
 
-  var filledConfigs = getLayoutByRole(Role.Admin);
   // jjw: TODO:
   // jjw: Role roleFromUI = roleStringFromUI.toUpperCase() as Role;
 
@@ -79,10 +76,9 @@ const DrawerMenuItemList: React.FC = () => {
     // jjw: => https://stackoverflow.com/a/64304122
     // jjw: make sure filename is with .tsx extension
     <List component="nav" className={classes.appMenu} disablePadding>
-      {/* jjw: TODO: remove comment */}
-      {/* {appMenuItems.map((item, index) => (
+      {config.map((item, index) => (
         <DrawerMenuItem {...item} key={index} />
-      ))} */}
+      ))}
     </List>
   );
 };

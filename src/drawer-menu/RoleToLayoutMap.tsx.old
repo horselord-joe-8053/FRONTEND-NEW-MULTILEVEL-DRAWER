@@ -6,10 +6,10 @@ import * as Logger from '../utils/logger';
 
 import {
   adminDrawerMenuLayout,
-  // ownerDrawerMenuLayout,
-  // staffDrawerMenuLayout,
-  // privateUserDrawerMenuLayout,
-  // publicUserDrawerMenuLayout,
+  ownerDrawerMenuLayout,
+  staffDrawerMenuLayout,
+  privateUserDrawerMenuLayout,
+  publicUserDrawerMenuLayout,
 } from './Layouts';
 
 import { pageConfigs } from './PageConfigs';
@@ -24,16 +24,16 @@ export enum Role {
 
 const rolesToLayouts = {
   [Role.Admin]: adminDrawerMenuLayout,
-  // [Role.Owner]: ownerDrawerMenuLayout,
-  // [Role.Staff]: staffDrawerMenuLayout,
-  // [Role.PrivateUser]: privateUserDrawerMenuLayout,
-  // [Role.PublicUser]: publicUserDrawerMenuLayout,
+  [Role.Owner]: ownerDrawerMenuLayout,
+  [Role.Staff]: staffDrawerMenuLayout,
+  [Role.PrivateUser]: privateUserDrawerMenuLayout,
+  [Role.PublicUser]: publicUserDrawerMenuLayout,
 };
 
-export function getFilledConfigByRole(role: Role): any {
+export function getLayoutByRole(role: Role): any {
   Logger.logAsStr('RoleToLayoutMap.getLayoutByRole', 'role', role.toString());
 
-  var layout: any = rolesToLayouts[role as keyof typeof rolesToLayouts];
+  var layout: any = rolesToLayouts[role];
   Logger.logAsJsonStr('RoleToLayoutMap.getLayoutByRole', 'layout', layout);
 
   // jjw: we convert from the layout to all expanded menu items in a list
@@ -77,27 +77,12 @@ export const adminDrawerMenuLayout = {
   );
   var lowerMenuFilledConfig: any[] = fillForKeyList(lowerMenuLayoutKeys, routesFilledConfig);
 
-  Logger.logAsJsonStr(
-    'RoleToLayoutMap.getLayoutByRole, after population',
-    'routesFilledConfig.length',
-    routesFilledConfig.length
-  );
-
   var filledAll = {
     upper: upperMenuFilledConfig,
     lower: lowerMenuFilledConfig,
     routes: routesFilledConfig,
   };
-
-  // Logger.logAsJsonStr('RoleToLayoutMap.getLayoutByRole', 'filledBoth', filledAll);
-  // jjw: don't want to do this, as JSON.Stringify returns cicular ref error
-  // jjw:   even with 'getCircularReplacer', it will print a lot of random
-
-  Logger.logAsJsonStr(
-    'RoleToLayoutMap.getLayoutByRole, after population',
-    'filledAll upper and lower',
-    { upper: filledAll.upper, lower: filledAll.lower }
-  );
+  Logger.logAsJsonStr('RoleToLayoutMap.getLayoutByRole', 'filledBoth', filledAll);
 
   return filledAll;
 }
@@ -184,11 +169,11 @@ function filledForKey(item: any, routes: any[]): any {
 
     Logger.logAsStr('RoleToLayoutMap.filledForKey', '', 'here 3');
 
-    Logger.logAsJsonStr(
-      'RoleToLayoutMap.filledForKey',
-      'filledChildrenConfigs',
-      filledChildrenConfigs
-    );
+    // Logger.logAsJsonStr(
+    //   'RoleToLayoutMap.filledForKey',
+    //   'filledChildrenConfigs',
+    //   filledChildrenConfigs
+    // );
 
     // jjw: spread operator '...' for array, but we may not need it here
     // jjw: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax#spread_in_array_literals
@@ -196,7 +181,7 @@ function filledForKey(item: any, routes: any[]): any {
 
     Logger.logAsStr('RoleToLayoutMap.filledForKey', '', 'here 4');
 
-    Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'filled after children', filled);
+    // Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'filled after children', filled);
   }
 
   return filled;

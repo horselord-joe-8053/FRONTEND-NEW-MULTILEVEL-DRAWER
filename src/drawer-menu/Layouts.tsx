@@ -7,74 +7,74 @@ export const adminDrawerMenuLayout = {
       key: 'resident',
       items: [{ key: 'residentInfo' }, { key: 'residentPayment' }],
     },
-    {
-      key: 'staff',
-      items: [{ key: 'staffInfo' }, { key: 'staffCompensation' }, { key: 'staffTraining' }],
-    },
-    { key: 'importantContacts' },
-    { key: 'serviceContacts' },
-    { key: 'users' },
+    //   {
+    //     key: 'staff',
+    //     items: [{ key: 'staffInfo' }, { key: 'staffCompensation' }, { key: 'staffTraining' }],
+    //   },
+    //   { key: 'importantContacts' },
+    //   { key: 'serviceContacts' },
+    //   { key: 'users' },
   ],
 
   lower: [{ key: 'contactUs' }],
 };
 
-export const ownerDrawerMenuLayout = {
-  upper: [
-    { key: 'home' },
-    {
-      key: 'resident',
-      items: [{ key: 'residentInfo' }, { key: 'residentPayment' }],
-    },
-    {
-      key: 'staff',
-      items: [{ key: 'staffInfo' }, { key: 'staffCompensation' }, { key: 'staffTraining' }],
-    },
-    { key: 'importantContacts' },
-    { key: 'serviceContacts' },
-  ],
+// export const ownerDrawerMenuLayout = {
+//   upper: [
+//     { key: 'home' },
+//     {
+//       key: 'resident',
+//       items: [{ key: 'residentInfo' }, { key: 'residentPayment' }],
+//     },
+//     {
+//       key: 'staff',
+//       items: [{ key: 'staffInfo' }, { key: 'staffCompensation' }, { key: 'staffTraining' }],
+//     },
+//     { key: 'importantContacts' },
+//     { key: 'serviceContacts' },
+//   ],
 
-  lower: [{ key: 'contactUs' }],
-};
+//   lower: [{ key: 'contactUs' }],
+// };
 
-export const staffDrawerMenuLayout = {
-  upper: [
-    { key: 'home' },
-    {
-      key: 'resident',
-      items: [{ key: 'residentInfo' }],
-    },
-    {
-      key: 'staff',
-      items: [{ key: 'staffInfo' }, { key: 'staffTraining' }],
-    },
-    { key: 'importantContacts' },
-    { key: 'serviceContacts' },
-  ],
+// export const staffDrawerMenuLayout = {
+//   upper: [
+//     { key: 'home' },
+//     {
+//       key: 'resident',
+//       items: [{ key: 'residentInfo' }],
+//     },
+//     {
+//       key: 'staff',
+//       items: [{ key: 'staffInfo' }, { key: 'staffTraining' }],
+//     },
+//     { key: 'importantContacts' },
+//     { key: 'serviceContacts' },
+//   ],
 
-  lower: [{ key: 'contactUs' }],
-};
+//   lower: [{ key: 'contactUs' }],
+// };
 
-export const privateUserDrawerMenuLayout = {
-  upper: [
-    { key: 'home' },
-    {
-      key: 'staff',
-      items: [{ key: 'staffInfo' }],
-    },
-  ],
+// export const privateUserDrawerMenuLayout = {
+//   upper: [
+//     { key: 'home' },
+//     {
+//       key: 'staff',
+//       items: [{ key: 'staffInfo' }],
+//     },
+//   ],
 
-  lower: [{ key: 'contactUs' }],
-};
+//   lower: [{ key: 'contactUs' }],
+// };
 
-export const publicUserDrawerMenuLayout = {
-  upper: [
-    { key: 'home' },
-    {
-      key: 'staff',
-      items: [{ key: 'staffInfo' }],
-    },
-  ],
+// export const publicUserDrawerMenuLayout = {
+//   upper: [
+//     { key: 'home' },
+//     {
+//       key: 'staff',
+//       items: [{ key: 'staffInfo' }],
+//     },
+//   ],
 
-  lower: [{ key: 'contactUs' }],
-};
+//   lower: [{ key: 'contactUs' }],
+// };
