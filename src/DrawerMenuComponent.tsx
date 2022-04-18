@@ -9,6 +9,8 @@ import { NavLink, NavLinkProps } from 'react-router-dom';
 "@types/react-router-dom": "latest",
 "react-router-dom": "latest",
 */
+
+import * as Logger from './utils/logger';
 export interface DrawerMenuComponentProps {
   className?: string;
   link?: string | null; // because the InferProps props allows alows null value
@@ -30,13 +32,22 @@ const DrawerMenuComponent: React.FC<DrawerMenuComponentProps> = (props) => {
       button
       className={className}
       children={children}
-      component={forwardRef((props: NavLinkProps, ref: any) => (
-        <NavLink {...props} ref={ref} />
+      component={forwardRef(
+        (props: NavLinkProps, ref: any) => (
+          <NavLink {...props} ref={ref} />
+        )
         // jjw: TODO??? is this gonna work?
         // jjw: https://stackoverflow.com/a/63834513
         // jjw: in the newer version of LinkOps, innerRef is no longer a parameter
-      ))}
+      )}
       to={link}
+      onClick={onClick}
+      // jjw: need to add onClick to fix the problem we had for two days
+      // jjw: each 'DrawerMenuItem' is using onClick() to control <Clapse/>
+      // jjw: open or close state; the design that inspired us (https://codesandbox.io/s/frosty-jepsen-od0btu)
+      // jjw: used above 'switch' condition to only permit an menu item that is
+      // jjw: not a link to control 'Clapse', while each menu item with link can't control 
+      // jjw: 'Clapse'
     />
   );
 };

@@ -89,7 +89,6 @@ export const pageConfigs = {
     RouteTo: ContactUs,
     Icon: IconShoppingCart,
   },
-
   /* 
 jjw: got the following Warning:
 "

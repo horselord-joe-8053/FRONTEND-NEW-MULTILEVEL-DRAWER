@@ -164,10 +164,13 @@ function filledForKey(item: any, routes: any[]): any {
     },
   */
 
+  // jjw: omit 'RouteTo' from being populated in config as it is only for <Routes/>;
+  const { RouteTo: omittedRouteTo, ...filledParentConfigWithoutRouteTo } = filledParentConfig;
+
   var filled = {
     // jjw: spread operator '...' for Objects
     // jjw: https://www.javascripttutorial.net/object/javascript-merge-objects/
-    ...filledParentConfig,
+    ...filledParentConfigWithoutRouteTo,
   };
   Logger.logAsJsonStr('RoleToLayoutMap.filledForKey', 'filled before children', filled);
 

@@ -9,6 +9,8 @@ import IconPeople from '@mui/icons-material/People';
 import IconBarChart from '@mui/icons-material/BarChart';
 import IconLibraryBooks from '@mui/icons-material/LibraryBooks';
 
+import * as Logger from './utils/logger';
+
 import List from '@mui/material/List';
 
 import DrawerMenuItem from './DrawerMenuItem';
@@ -16,8 +18,15 @@ import DrawerMenuItem from './DrawerMenuItem';
 const DrawerMenuItemList: React.FC<{ menuItemsConfig: any[] }> = ({ menuItemsConfig }) => {
   const classes = useStyles();
 
+  Logger.logAsJsonStr('DrawerMenuItemList', 'menuItemsConfig', menuItemsConfig);
+
   // jjw: TODO:
   // jjw: Role roleFromUI = roleStringFromUI.toUpperCase() as Role;
+
+  var menuItemList = menuItemsConfig.map(
+    (item, index) => 
+      <DrawerMenuItem {...item} key={"menuList_" + index} />
+  );
 
   return (
     // jjw: NOTE:
@@ -25,9 +34,7 @@ const DrawerMenuItemList: React.FC<{ menuItemsConfig: any[] }> = ({ menuItemsCon
     // jjw: => https://stackoverflow.com/a/64304122
     // jjw: make sure filename is with .tsx extension
     <List component="nav" className={classes.appMenu} disablePadding>
-      {menuItemsConfig.map((item, index) => (
-        <DrawerMenuItem {...item} key={index} />
-      ))}
+      {menuItemList}
     </List>
   );
 };

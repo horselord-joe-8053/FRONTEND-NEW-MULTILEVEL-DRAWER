@@ -19,6 +19,8 @@ import IconExpandMore from '@mui/icons-material/ExpandMore';
 
 import DrawerMenuComponent from './DrawerMenuComponent';
 
+import * as Logger from './utils/logger';
+
 // React runtime PropTypes
 export const AppMenuItemPropTypes = {
   name: PropTypes.string.isRequired,
@@ -34,21 +36,23 @@ type AppMenuItemPropsWithoutItems = Omit<AppMenuItemPropTypes, 'items'>;
 
 // Improve child items declaration
 export type AppMenuItemProps = AppMenuItemPropsWithoutItems & {
+  // Recursive
   items?: AppMenuItemProps[];
 };
 
 const DrawerMenuItem: React.FC<AppMenuItemProps> = (props) => {
   const { name, link, Icon, items = [] } = props;
+
   const classes = useStyles();
   const isExpandable = items && items.length > 0;
   const [open, setOpen] = React.useState(false);
 
-  console.log('name:' + name + ', isExpandable:' + isExpandable + ', open:' + open);
+  // console.log('name:' + name + ', isExpandable:' + isExpandable + ', open:' + open);
 
   function handleClick() {
-    console.log('handleClick start, name:' + name + ', open:' + open);
+    // console.log('handleClick start, name:' + name + ', open:' + open);
     setOpen(!open);
-    console.log('handleClick end,   name:' + name + ', open:' + open);
+    // console.log('handleClick end,   name:' + name + ', open:' + open);
   }
 
   const MenuItemRoot = (
@@ -66,6 +70,14 @@ const DrawerMenuItem: React.FC<AppMenuItemProps> = (props) => {
     </DrawerMenuComponent>
   );
 
+  Logger.logAsStr('DrawerMenuItem, before MenuItemChildren', 'name', name);
+  Logger.logAsJsonStr('DrawerMenuItem, before MenuItemChildren', 'items.length', items.length);
+
+  var subMenuItemList = isExpandable ? items.map(
+    (item, index) => 
+      <DrawerMenuItem {...item} key={name + "_" + index} />
+  ) : null;
+
   const MenuItemChildren = isExpandable ? (
     <Collapse in={open} timeout="auto" unmountOnExit>
       <Divider />
@@ -73,13 +85,16 @@ const DrawerMenuItem: React.FC<AppMenuItemProps> = (props) => {
       {/* jjw: cascade the left padding for children components 
             TODO: put this into centralized class/style file????*/}
       <List component="div" style={{ paddingLeft: '25px' }}>
-        {items.map((item, index) => (
-          // jjw: recursive
-          <DrawerMenuItem {...item} key={index} />
-        ))}
+        {subMenuItemList}
       </List>
     </Collapse>
   ) : null;
+
+  // Logger.logAsJsonStr(
+  //   '<DrawerMenuItem/> after MenuItemChildren',
+  //   'MenuItemChildren',
+  //   MenuItemChildren
+  // );
 
   return (
     <>
