@@ -1,33 +1,23 @@
 import React from 'react';
 
+
 export const adminDrawerMenuLayout = {
   upper: [
     { page: 'home' },
     {
       page: 'resident',
-      items: [
-        {
-          page: 'staff',
-          items: [
-            // { page: 'staffInfo', items: [{ page: 'residentPayment' }] },
-            { page: 'staffInfo' },
-            { page: 'staffCompensation' },
-          ],
-        },
-        // { page: 'residentPayment' },
-      ],
+      items: [{ page: 'residentInfo' }, { page: 'residentPayment' }],
     },
-    //     {
-    //       page: 'staff',
-    //       items: [{ page: 'staffInfo' }, { page: 'staffCompensation' }, { page: 'staffTraining' }],
-    //     },
-    //     { page: 'importantContacts' },
-    //     { page: 'serviceContacts' },
-    //     { page: 'users' },
+    {
+      page: 'staff',
+      items: [{ page: 'staffInfo' }, { page: 'staffCompensation' }, { page: 'staffTraining' }],
+    },
+    { page: 'importantContacts' },
+    { page: 'serviceContacts' },
+    { page: 'users' }
   ],
 
-  // lower: [{ page: 'contactUs' }],
-  lower: [],
+  lower: [{ page: 'contactUs' }],
 };
 
 export const ownerDrawerMenuLayout = {

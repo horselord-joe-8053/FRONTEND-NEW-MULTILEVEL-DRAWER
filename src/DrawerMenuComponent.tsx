@@ -41,13 +41,15 @@ const DrawerMenuComponent: React.FC<DrawerMenuComponentProps> = (props) => {
         // jjw: in the newer version of LinkOps, innerRef is no longer a parameter
       )}
       to={link}
-      onClick={onClick}
+      // onClick={onClick} 
       // jjw: need to add onClick to fix the problem we had for two days
       // jjw: each 'DrawerMenuItem' is using onClick() to control <Clapse/>
       // jjw: open or close state; the design that inspired us (https://codesandbox.io/s/frosty-jepsen-od0btu)
       // jjw: used above 'switch' condition to only permit an menu item that is
       // jjw: not a link to control 'Clapse', while each menu item with link can't control 
       // jjw: 'Clapse'
+
+      // jjw: decided to reverse the fix and keep the Claspeable to only non linked items
     />
   );
 };
