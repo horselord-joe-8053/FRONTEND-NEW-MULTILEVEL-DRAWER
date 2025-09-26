@@ -1,46 +1,158 @@
-# Getting Started with Create React App
+# FRONTEND-NEW-MULTILEVEL-DRAWER
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, highly-configurable React component for building multilevel side drawers or menus. Designed for scalability, clean UI, and rapid integration into any frontend project.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+The **Multilevel Drawer** is a reusable UI component that enables nested navigation menus within a sliding drawer interface. It's perfect for dashboards, admin panels, or any application requiring hierarchical navigation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Multi-level support:** Nest any number of menu levels.
+- **Customizable appearance:** Theme, width, icons, and more.
+- **Smooth animations:** Responsive sliding transitions.
+- **Accessible:** Keyboard navigation and screen reader support.
+- **Easy integration:** Simple API for menu data and event handling.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Architecture
 
-### `npm run build`
+Below is a high-level diagram of how the drawer component fits into a typical React application:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```mermaid
+graph TD
+    A[App] -->|Props| B[MultilevelDrawer]
+    B --> C[DrawerHeader]
+    B --> D[DrawerBody]
+    D --> E[MenuItem]
+    E -->|Nested| F[SubMenu]
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Component Structure
 
-### `npm run eject`
+```mermaid
+classDiagram
+    class MultilevelDrawer {
+        - props: menuData, onSelect, theme, width
+        + open()
+        + close()
+        + renderMenu()
+    }
+    class MenuItem {
+        - props: label, icon, subItems
+        + handleClick()
+    }
+    class SubMenu {
+        - props: subItems
+        + renderSubMenu()
+    }
+    MultilevelDrawer o-- MenuItem
+    MenuItem o-- SubMenu
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm install multilevel-drawer
+```
 
-## Learn More
+### Example
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+import MultilevelDrawer from 'multilevel-drawer';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const menuData = [
+  {
+    label: 'Dashboard',
+    icon: '📊',
+    subItems: [
+      { label: 'Analytics', icon: '📈' },
+      { label: 'Reports', icon: '📄' },
+    ],
+  },
+  {
+    label: 'Settings',
+    icon: '⚙️',
+    subItems: [
+      { label: 'Profile', icon: '👤' },
+      { label: 'Security', icon: '🔒' },
+    ],
+  },
+];
+
+function App() {
+  return (
+    <MultilevelDrawer
+      menuData={menuData}
+      theme="light"
+      width={300}
+      onSelect={(item) => console.log('Selected:', item)}
+    />
+  );
+}
+```
+
+---
+
+## How It Works
+
+- **Menu Rendering:** The drawer receives a `menuData` array and recursively renders each item. If an item has `subItems`, it creates a nested submenu.
+- **State Management:** The drawer manages open/close state and tracks the current navigation path.
+- **Events:** Clicking a menu item without subItems triggers the `onSelect` callback.
+
+---
+
+## Preview
+
+Below is a conceptual preview of a 2-level drawer:
+
+```mermaid
+flowchart LR
+    Drawer
+    subgraph Level 1
+        Dashboard
+        Settings
+    end
+    subgraph Level 2
+        Analytics
+        Reports
+        Profile
+        Security
+    end
+    Dashboard --> Analytics
+    Dashboard --> Reports
+    Settings --> Profile
+    Settings --> Security
+```
+
+---
+
+## Accessibility
+
+- Full keyboard navigation:
+    - Tab/Shift+Tab to move between items
+    - Arrow keys to traverse levels
+- ARIA attributes for screen readers
+
+---
+
+## Contributing
+
+1. Fork the repo
+2. Create a feature branch
+3. Submit a PR with clear description and diagrams if relevant
+
+---
+
+## Contact
+
+For issues, feature requests, or questions, please open a GitHub issue or contact the repository owner.
